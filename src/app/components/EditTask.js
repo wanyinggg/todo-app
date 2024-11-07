@@ -14,7 +14,6 @@ const EditTask = ({ taskToEdit, onEdit, onCancel, categories }) => {
         }
     }, [taskToEdit]);
 
-    // Get today's date in YYYY-MM-DD format
     const today = new Date().toISOString().split('T')[0];
 
     const handleEdit = () => {

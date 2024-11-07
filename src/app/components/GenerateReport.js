@@ -4,7 +4,7 @@ import * as XLSX from "xlsx";
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   const day = String(date.getDate()).padStart(2, "0");
-  const month = String(date.getMonth() + 1).padStart(2, "0"); // Month is 0-based, so add 1
+  const month = String(date.getMonth() + 1).padStart(2, "0"); 
   const year = date.getFullYear();
   return `${day}-${month}-${year}`;
 };
@@ -12,7 +12,7 @@ const formatDate = (dateString) => {
 const GenerateReport = (tasks) => {
   const formattedTasks = tasks.map((task) => ({
     Task: task.text,
-    "Due Date": task.dueDate ? formatDate(task.dueDate) : "", // Format the due date
+    "Due Date": task.dueDate ? formatDate(task.dueDate) : "", 
     Category: task.category,
     Completed: task.completed ? "Yes" : "No",
   }));

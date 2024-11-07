@@ -6,7 +6,7 @@ import Calendar from './components/Calendar';
 import { Box } from '@mui/material';
 
 const Page = () => {
-    const [view, setView] = useState(null); // Initially null to prevent rendering before the state is set
+    const [view, setView] = useState(null); 
     const [loading, setLoading] = useState(true); // Loading state to wait for localStorage data
 
     // Load the last visited view from localStorage on component mount
@@ -17,7 +17,7 @@ const Page = () => {
         } else {
             setView("To Do List"); // Fallback to "To Do List" if nothing is saved
         }
-        setLoading(false); // Set loading to false once the data is loaded
+        setLoading(false); 
     }, []);
 
     // Update localStorage whenever the view changes

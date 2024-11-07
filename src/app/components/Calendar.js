@@ -29,10 +29,10 @@ const Calendar = () => {
 
   const events = useMemo(() => {
     return tasks.map((task) => ({
-      id: task.id, // Make sure each event has a unique ID
+      id: task.id, 
       title: task.text,
       start: new Date(moment(task.dueDate).startOf('day').toDate()),
-      end: new Date(moment(task.dueDate).endOf('day').toDate()), // Set end time to end of day
+      end: new Date(moment(task.dueDate).endOf('day').toDate()), 
       color: categoryColors[task.category] || '#808080',
       allDay: true,
       resource: task, // Store the original task data
@@ -52,7 +52,6 @@ const Calendar = () => {
     };
   };
 
-  // Handle event selection (clicking on an existing event)
   const handleSelectEvent = (event) => {
     setSelectedDate({
       date: event.start,
@@ -66,12 +65,10 @@ const Calendar = () => {
     setSelectedDate(null);
   };
 
-  // Move to the next month
   const handleNextMonth = () => {
     setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() + 1)));
   };
 
-  // Move to the previous month
   const handlePrevMonth = () => {
     setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() - 1)));
   };
@@ -103,7 +100,7 @@ const Calendar = () => {
         step={60}
         timeslots={1}
         defaultView="month"
-        date={currentDate} // Set the current date to the custom one
+        date={currentDate} 
         toolbar={false}
       />
       

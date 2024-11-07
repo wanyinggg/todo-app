@@ -131,8 +131,8 @@ const Filter = ({
               onChange={(e) => setSortOrder(e.target.value)}
               label="Sort by Due Date"
             >
-              <MenuItem value="asc">Recent to Oldest</MenuItem>
-              <MenuItem value="desc">Oldest to Recent</MenuItem>
+              <MenuItem value="asc">Ascending Order</MenuItem>
+              <MenuItem value="desc">Descending Order</MenuItem>
             </Select>
           </FormControl>
         )}
