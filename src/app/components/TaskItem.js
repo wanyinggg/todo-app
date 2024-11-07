@@ -14,7 +14,7 @@ const TaskItem = ({ task, index, onComplete, onEdit, onDelete }) => {
           sx={{
             mb: 2,
             transition: "transform 0s",
-            position: "relative",
+            position: 'relative',
             zIndex: snapshot.isDragging ? 999 : 1,
           }}
         >
@@ -28,10 +28,12 @@ const TaskItem = ({ task, index, onComplete, onEdit, onDelete }) => {
               borderRadius: 2,
               boxShadow: snapshot.isDragging ? 4 : 1,
               backgroundColor: task.completed ? "success.light" : "background.paper",
-              transform: snapshot.isDragging ? "scale(1.02)" : "scale(1)",
-              transition: snapshot.isDragging
-                ? "none"
-                : "box-shadow 0.2s ease, transform 0.2s ease",
+              transform: snapshot.isDragging
+              ? "scale(1.02)"
+              : "scale(1)",
+            transition: snapshot.isDragging
+              ? "none"
+              : "box-shadow 0.2s ease, transform 0.2s ease",
             }}
           >
             {/* Task Content */}

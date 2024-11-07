@@ -97,16 +97,16 @@ const TodoList = () => {
 
   const onDragEnd = (result) => {
     const { destination, source } = result;
-    if (!destination || destination.index === source.index) return; // No change if dropped outside or at the same position
-
-    // Create a new array with the updated order of tasks
-    const reorderedTasks = Array.from(tasks);
-    const [removed] = reorderedTasks.splice(source.index, 1);
-    reorderedTasks.splice(destination.index, 0, removed);
-
-    // Update the tasks immediately without transition delay
-    setTasks(reorderedTasks);
+  
+    if (!destination || destination.index === source.index) return; // No change if dropped outside or in the same position
+  
+    const reorderedTasks = Array.from(filteredTasks); // Clone the filtered tasks array
+    const [removed] = reorderedTasks.splice(source.index, 1); // Remove the dragged task
+    reorderedTasks.splice(destination.index, 0, removed); // Insert the dragged task at the destination index
+    
+    setFilteredTasks(reorderedTasks); // Update the tasks state directly
   };
+  
 
   return (
     <Box sx={{ padding: 2 }}>
@@ -172,7 +172,7 @@ const TodoList = () => {
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="taskList">
           {(provided) => (
-            <Box ref={provided.innerRef} {...provided.droppableProps}>
+            <Box ref={provided.innerRef} {...provided.droppableProps} sx={{transition: "background-color 0.5s ease",}}>
               {filteredTasks
                 .slice(
                   (currentPage - 1) * tasksPerPage,
